@@ -12,10 +12,11 @@ unzip("./data/Electric Power Consumption.zip", exdir = "./data")
 
 
 ## Load the dataset into R using the read.table function
-powercon<-read.csv("./data/household_power_consumption.txt", sep =";", header = TRUE, na.strings = "?", stringsAsFactors = FALSE)
+powercon<-read.table("./data/household_power_consumption.txt", sep =";", header = TRUE, na.strings = "?")
+
 
 ## Convert Date and Time to Date & Time format
-powercon$Date<-as.Date(as.character(powercon$Date), "%m/%d/%Y")
+powercon$Date<-as.Date(powercon$Date, "%m/%d/%Y")
 powercon$Time<-strptime(powercon$Time, "%H:%M:%S")
 
 
