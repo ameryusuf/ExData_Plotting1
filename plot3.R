@@ -29,12 +29,19 @@ plotdata<-subset(powercon, Date >= date1 & Date <= date2)
 ## Combine the Date and Time columns and add a new column 'DateTime' to the dataframe
 plotdata$DateTime<-plotdata$Date+plotdata$Time
 
-## Plot the graph to plot2.png file
+## Plot the graph to plot3.png file with the three Sub_metering columns and the legend in the top right corner
 x<-plotdata$DateTime
-y<-plotdata$Global_active_power
+y1<-plotdata$Sub_metering_1
+y2<-plotdata$Sub_metering_2
+y3<-plotdata$Sub_metering_3
+  
+png("./data/ExData_Plotting1/plot3.png", width = 480, height = 480)
 
-png("./data/ExData_Plotting1/plot2.png", width = 480, height = 480)
+plot(x, y1, type = "l", ylab = "Energy sub metering", xlab="")
 
-plot(x, y, type = "l", ylab = "Global Active Power (kilowatts)", xlab="")
+points(x, y2, type = "l", xlab = "", ylab = "Energy sub metering", col = "red")
+points(x, y3, type = "l", xlab = "", ylab = "Energy sub metering", col = "blue")
+
+legend("topright", lty = 1, col = c("black", "red", "blue"), legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
 
 dev.off()
