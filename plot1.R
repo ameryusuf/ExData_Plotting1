@@ -17,7 +17,7 @@ powercon<-read.table("./data/household_power_consumption.txt", sep =";", header 
 
 ## Convert Date and Time to Date & Time format
 powercon$Date<-as.Date(powercon$Date, "%m/%d/%Y")
-powercon$Time<-strptime(powercon$Time, "%H:%M:%S")
+
 
 
 ##Subset the dataset for the two February dates
