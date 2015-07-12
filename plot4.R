@@ -44,7 +44,7 @@ par(mfrow = c(2,2))
 
 
 ## Plot the first graph 
-plot(x, u, type = "l", ylab = "Global Active Power (kilowatts)", xlab="")
+plot(x, u, type = "l", ylab = "Global Active Power", xlab="")
 
 ## Plot the second graph
 plot(x, v, type = "l",  xlab="datetime", ylab = "Voltage")
